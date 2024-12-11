@@ -2,7 +2,7 @@ FROM        --platform=$TARGETOS/$TARGETARCH node:20-bookworm-slim
 
 LABEL       author="Michael Parker" maintainer="parker@pterodactyl.io"
 
-# Installiere die notwendigen Systembibliotheken für Playwright und Puppeteer
+# Installiere notwendige Systembibliotheken
 RUN         apt update \
             && apt -y install \
             ffmpeg \
@@ -45,7 +45,7 @@ RUN         apt update \
 
 # Installiere globale npm-Pakete und Playwright-Browser
 RUN         npm install npm@latest typescript ts-node @types/node playwright --location=global \
-            && npx playwright install --with-deps
+            && npx playwright install --with-deps --browser=chromium
 
 USER        container
 ENV         USER=container HOME=/home/container
