@@ -2,7 +2,7 @@ FROM        --platform=$TARGETOS/$TARGETARCH node:20-bookworm-slim
 
 LABEL       author="Michael Parker" maintainer="parker@pterodactyl.io"
 
-# Installiere die notwendigen Systembibliotheken für Puppeteer und belasse bestehende Dependencies
+# Installiere notwendige Systembibliotheken
 RUN         apt update \
             && apt -y install \
             ffmpeg \
