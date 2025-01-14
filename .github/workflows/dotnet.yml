@@ -22,6 +22,7 @@ jobs:
           - 6
           - 7
           - 8
+          - 9
     steps:
       - uses: actions/checkout@v4
             # Setup QEMU for ARM64 Build
@@ -34,7 +35,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.REGISTRY_TOKEN }}
-      - uses: docker/build-push-action@v5
+      - uses: docker/build-push-action@v6
         with:
           context: ./dotnet
           file: ./dotnet/${{ matrix.tag }}/Dockerfile

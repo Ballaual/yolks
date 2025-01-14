@@ -1,18 +1,16 @@
-FROM        --platform=$TARGETOS/$TARGETARCH node:12-bullseye-slim
+FROM        --platform=$TARGETOS/$TARGETARCH python:3.13-slim-bookworm
 
 LABEL       author="Michael Parker" maintainer="parker@pterodactyl.io"
 
 RUN         apt update \
-            && apt -y install ffmpeg iproute2 git sqlite3 libsqlite3-dev python3 python3-dev ca-certificates dnsutils tzdata zip tar curl build-essential libtool iputils-ping libnss3 tini \
+            && apt -y install git gcc g++ ca-certificates dnsutils curl iproute2 ffmpeg procps tini \
             && useradd -m -d /home/container container
-
-RUN         npm install npm@9.8.1 typescript ts-node @types/node --location=global
 
 USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
-STOPSIGNAL  SIGINT
+STOPSIGNAL SIGINT
 
 COPY        --chown=container:container ./../entrypoint.sh /entrypoint.sh
 RUN         chmod +x /entrypoint.sh

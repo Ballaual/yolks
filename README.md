@@ -97,6 +97,8 @@ is tagged correctly.
   * `ghcr.io/parkervcp/yolks:dotnet_7`
 * [`dotnet8.0`](/dotnet/8)
   * `ghcr.io/parkervcp/yolks:dotnet_8`
+* [`dotnet9.0`](/dotnet/9)
+  * `ghcr.io/parkervcp/yolks:dotnet_9`
 
 ### [Elixir](/elixir)
 
@@ -165,6 +167,8 @@ is tagged correctly.
   * `ghcr.io/parkervcp/yolks:go_1.21`
 * [`go1.22`](/go/1.22)
   * `ghcr.io/parkervcp/yolks:go_1.22`
+* [`go1.23`](/go/1.23)
+  * `ghcr.io/parkervcp/yolks:go_1.23`
 
 ### [Java](/java)
 
@@ -234,7 +238,11 @@ is tagged correctly.
   * `ghcr.io/parkervcp/yolks:nodejs_20`
 * [`node21`](/nodejs/21)
   * `ghcr.io/parkervcp/yolks:nodejs_21`
-
+* [`node22`](/nodejs/22)
+  * `ghcr.io/parkervcp/yolks:nodejs_22`  
+* [`node23`](/nodejs/23)
+  * `ghcr.io/parkervcp/yolks:nodejs_23`
+  
 ### [PostgreSQL](/postgres)
 
   * [`Postgres 9`](/postgres/9)
@@ -264,6 +272,8 @@ is tagged correctly.
   * `ghcr.io/parkervcp/yolks:python_3.11`
 * [`python3.12`](/python/3.12)
   * `ghcr.io/parkervcp/yolks:python_3.12`
+* [`python3.13`](/python/3.13)
+  * `ghcr.io/parkervcp/yolks:python_3.13`
 
 ### [Redis](/redis)
 
