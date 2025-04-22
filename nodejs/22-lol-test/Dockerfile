@@ -2,7 +2,7 @@ FROM --platform=$TARGETOS/$TARGETARCH node:22-bookworm-slim
 
 LABEL author="Michael Parker" maintainer="parker@pterodactyl.io"
 
-# Systemabhängigkeiten + Chromium
+# System dependencies + Chromium
 RUN apt update && apt -y install \
     ffmpeg \
     iproute2 \
@@ -45,19 +45,20 @@ RUN apt update && apt -y install \
     libxshmfence1 \
     fonts-freefont-ttf \
     fonts-ipafont-gothic \
+    tini \
     && dbus-uuidgen > /var/lib/dbus/machine-id \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Node.js-Tools
+# Node.js tools
 RUN npm install npm@latest typescript ts-node --location=global
 
-# pnpm einrichten
+# Set up pnpm
 RUN npm install -g corepack \
     && corepack enable \
     && corepack prepare pnpm@latest --activate
 
-# Benutzerkonfiguration
+# User configuration
 RUN useradd -m -d /home/container container
 USER container
 ENV USER=container \
@@ -65,7 +66,7 @@ ENV USER=container \
     PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium \
     NODE_ENV=production
 
-# Arbeitsverzeichnis und Entrypoint
+# Working directory and Entrypoint
 WORKDIR /home/container
 COPY --chown=container:container ./../entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
